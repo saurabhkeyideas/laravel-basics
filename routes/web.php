@@ -5,6 +5,7 @@ use  App\Http\Controllers\BasicController;
 use App\Http\Controllers\ResourseController;
 use  App\Http\Controllers\SingleController;
 use App\Http\Controllers\RegistrationController;
+use App\Models\Customers;
 
 
 /*
@@ -30,7 +31,13 @@ Route::get('/demo',[SingleController::class]);
 Route::get('/register',[RegistrationController::class, 'index']);
 Route::post('/register',[RegistrationController::class, 'register']);
 
+//get all table data
+Route::get('/customers',function(){
+    $customers=Customers::all();
+    echo "<pre>";
+    print_r($customers->toArray());
 
+});
 
 
 // Route::get('/{name?}', function ($name=null) {
