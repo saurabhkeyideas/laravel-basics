@@ -1,0 +1,61 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use  App\Http\Controllers\BasicController;
+use App\Http\Controllers\ResourseController;
+use  App\Http\Controllers\SingleController;
+use App\Http\Controllers\RegistrationController;
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+
+// Route::get('/',[BasicController::class, 'home']);
+
+Route::get('/welcome','App\Http\Controllers\BasicController@welcome');
+Route::get('/demo',[SingleController::class]);
+// Route::resourse('/photos',PhotoController::class);  //not working
+
+
+//form part
+Route::get('/register',[RegistrationController::class, 'index']);
+Route::post('/register',[RegistrationController::class, 'register']);
+
+
+
+
+// Route::get('/{name?}', function ($name=null) {
+//    $data=compact('name');
+//     return view('home')->with($data);
+// });
+
+// Route::get('/demo',function(){
+//     // echo "Hello World";
+//     return view('demo');
+// });
+
+// Route::get('/demo/{name}', function ($name) {
+//     echo "Hello ".$name;
+// });
+
+// Route::any('/test',function(){
+//   echo "Testing the route";
+// });
+
+// Route::put('users/{id}',function(){
+//     echo "put router";
+//   });
+
+//   Route::delete('users/{id}',function(){
+//     echo "Testing the route";
+//   });
+
