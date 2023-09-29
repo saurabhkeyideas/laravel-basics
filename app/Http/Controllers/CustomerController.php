@@ -10,7 +10,8 @@ class CustomerController extends Controller
     public function index(){
         return view('customer');
     }
-
+    
+    //Post
     public function store(Request $request){
         // echo "<pre>";
         // print_r($request->all());
@@ -31,7 +32,7 @@ class CustomerController extends Controller
         return redirect('/customer/view');
 
     }
-
+     //Get
     public function view(){
         $customers=Customers::all();
         $data=compact('customers');
@@ -39,5 +40,18 @@ class CustomerController extends Controller
         // print_r($customers->toArray());
         // echo "</pre>";
         return view('customer-view')->with($data);
+    }
+    //Delete 
+    public function delete($id){
+
+        $customer=Customers::find($id);
+        if(!is_null($customer)){
+            $customer->delete();
+        }
+
+        return redirect('/customer/view');
+        //Other method 
+        // Customers::find($id)->delete();
+        // return redirect()->back();
     }
 }

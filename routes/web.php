@@ -20,16 +20,21 @@ use App\Models\Customers;
 |
 */
 // Customer Routes
-Route::get('/customer/create',[CustomerController::class,'index']);
+Route::get('/customer/create',[CustomerController::class,'index'])->name('customer.create'); //we can give router name by my convinience
 Route::get('/customer/view',[CustomerController::class,'view']);
 Route::post('/customer',[CustomerController::class,'store']);
+Route::get('/customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
+
+Route::get('/',function(){  
+    return view('demo');
+});
 
 
 
 // Route::get('/',[BasicController::class, 'home']);
 
 Route::get('/welcome','App\Http\Controllers\BasicController@welcome');
-Route::get('/demo',[SingleController::class]);
+// Route::get('/demo',[SingleController::class]);
 // Route::resourse('/photos',PhotoController::class);  //not working
 
 
@@ -51,10 +56,7 @@ Route::get('/customers',function(){
 //     return view('home')->with($data);
 // });
 
-// Route::get('/demo',function(){
-//     // echo "Hello World";
-//     return view('demo');
-// });
+
 
 // Route::get('/demo/{name}', function ($name) {
 //     echo "Hello ".$name;
