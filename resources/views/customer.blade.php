@@ -32,43 +32,43 @@
   </div>
 </nav>
 
-  <form action="{{url('/')}}/customer" method="post">
+  <form action="{{$url}}" method="post">
     @csrf
    <div class="container">
-  <h2 class="text-center text-primary">Customer Registration</h2>
+  <h2 class="text-center text-primary">{{$title}}</h2>
   <div class="row ">
    <div class="form-group">
      <label for="">Name</label>
-     <input type="text" name="name" id="" class="form-control" placeholder="" aria-describedby="helpId">
+     <input type="text" name="name" id="" class="form-control" placeholder="" value="{{ isset($customer) ? $customer->name : '' }}">
      <!-- <small id="helpId" class="text-muted">Help text</small> -->
    </div>
    <div class="form-group">
      <label for="">Email</label>
-     <input type="email" name="email" id="" class="form-control" placeholder="" aria-describedby="helpId">
+     <input type="email" name="email" id="" class="form-control" placeholder="" value="{{ isset($customer) ? $customer->email : '' }}">
      <!-- <small id="helpId" class="text-muted">Help text</small> -->
    </div>
    </div>
    <div class="row">
    <div class="form-group">
      <label for="">Password</label>
-     <input type="password" name="password" id="" class="form-control" placeholder="" aria-describedby="helpId">
+     <input type="password" name="password" id="" class="form-control" placeholder="" >
      <!-- <small id="helpId" class="text-muted">Help text</small> -->
    </div>
    <div class="form-group">
      <label for="">Country</label>
-     <input type="text" name="country" id="" class="form-control" placeholder="" aria-describedby="helpId">
+     <input type="text" name="country" id="" class="form-control" placeholder="" value="{{ isset($customer) ? $customer->country : '' }}">
      <!-- <small id="helpId" class="text-muted">Help text</small> -->
    </div>
 </div>
 <div class="row">
    <div class="form-group">
      <label for="">State</label>
-     <input type="text" name="state" id="" class="form-control" placeholder="" aria-describedby="helpId">
+     <input type="text" name="state" id="" class="form-control" placeholder="" value="{{ isset($customer) ? $customer->state : '' }}">
      <!-- <small id="helpId" class="text-muted">Help text</small> -->
    </div>
    <div class="form-group">
      <label for="">Address</label>
-     <input type="text" name="address" id="" class="form-control" placeholder="" aria-describedby="helpId">
+     <input type="text" name="address" id="" class="form-control" placeholder="" value="{{ isset($customer) ? $customer->address : '' }}">
      <!-- <small id="helpId" class="text-muted">Help text</small> -->
    </div>
 </div>
@@ -99,7 +99,7 @@
    <div class="row">
    <div class="form-group">
      <label for="">Date of birth</label>
-     <input type="date" name="dob" id="" class="form-control" placeholder="" aria-describedby="helpId">
+     <input type="date" name="dob" id="" class="form-control" placeholder="" value="{{ isset($customer) ? $customer->dob : '' }}">
      <!-- <small id="helpId" class="text-muted">Help text</small> -->
    </div>
    </div>

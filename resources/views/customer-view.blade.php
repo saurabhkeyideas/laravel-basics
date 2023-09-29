@@ -86,7 +86,7 @@
                     <button class="btn btn-danger">Delete</button></td>
                     </a> 
                     <td>
-                    <a href="{{url('/customer/delete/')}}/{{$customer->id}}">   
+                    <a href="{{route('customer.edit', ['id' => $customer->id])}}">   
                     <button class="btn btn-primary">Edit</button></td>
                     </a> 
                     </td>
