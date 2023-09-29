@@ -20,7 +20,8 @@ use App\Models\Customers;
 |
 */
 // Customer Routes
-Route::get('/customer',[CustomerController::class,'index']);
+Route::get('/customer/create',[CustomerController::class,'index']);
+Route::get('/customer/view',[CustomerController::class,'view']);
 Route::post('/customer',[CustomerController::class,'store']);
 
 

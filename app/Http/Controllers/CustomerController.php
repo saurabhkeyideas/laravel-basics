@@ -28,5 +28,16 @@ class CustomerController extends Controller
         $customer->save();
         echo "Data Submitted";
 
+        return redirect('/customer/view');
+
+    }
+
+    public function view(){
+        $customers=Customers::all();
+        $data=compact('customers');
+        // echo "<pre>";
+        // print_r($customers->toArray());
+        // echo "</pre>";
+        return view('customer-view')->with($data);
     }
 }
