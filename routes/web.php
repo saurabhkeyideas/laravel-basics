@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\BasicController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ResourseController;
 use  App\Http\Controllers\SingleController;
 use App\Http\Controllers\RegistrationController;
@@ -18,6 +19,10 @@ use App\Models\Customers;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Customer Routes
+Route::get('/customer',[CustomerController::class,'index']);
+Route::post('/customer',[CustomerController::class,'store']);
+
 
 
 // Route::get('/',[BasicController::class, 'home']);
