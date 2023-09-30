@@ -40,13 +40,27 @@ class CustomerController extends Controller
 
     }
      //Get
-    public function view(){
-        $customers=Customers::all();
-        $data=compact('customers');
+    public function view(Request $request){
+         
+        $search=$request['search']??"";
+        if($search!=""){
+            $customers=Customers::where('name','LIKE',"%$search%")->orwhere('email','LIKE',"%$search%")->get();
+        }
+        else{
+            $customers=Customers::all();
+        }
+
+       
+        $data=compact('customers','search');
+        return view('customer-view')->with($data);
+        //To get all data
+        // $customers=Customers::all();
+        // $data=compact('customers');
+        // return view('customer-view')->with($data);
+
         // echo "<pre>";
         // print_r($customers->toArray());
         // echo "</pre>";
-        return view('customer-view')->with($data);
     }
     //Delete 
     public function delete($id){

@@ -35,10 +35,23 @@
 
 
       <div class="container">
+  <form action="" class="col-9">
+      <div class="form-group">
+        <label for=""></label>
+        <input type="search" name="search" id="" class="form-control" placeholder="Search by name or email" value="{{$search}}" >
+        
+      </div>
+      <button class="btn btn-primary">Search</button>
+       <a href="{{url('/customer/view')}}">
+      <button class="btn btn-primary">Reload</button>
+      </a>
+      </form>
         <a href="{{route('customer.create')}}"> 
             <!-- another method to define url path -->
         <button class="btn btn-primary d-inline-block m-2 float-right">Add Customer</button>
         </a>
+
+
         <table class="table">
             <thead>
                 <tr>
