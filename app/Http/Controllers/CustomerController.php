@@ -44,10 +44,14 @@ class CustomerController extends Controller
          
         $search=$request['search']??"";
         if($search!=""){
-            $customers=Customers::where('name','LIKE',"%$search%")->orwhere('email','LIKE',"%$search%")->get();
+            $customers=Customers::where('name','LIKE',"%$search%")->orwhere('email','LIKE',"%$search%")->paginate(10);
+       
+            // $customers=Customers::where('name','LIKE',"%$search%")->orwhere('email','LIKE',"%$search%")->get();
+
         }
         else{
-            $customers=Customers::all();
+            $customers=Customers::paginate(10);
+            // $customers=Customers::all();
         }
 
        

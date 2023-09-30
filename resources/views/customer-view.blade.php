@@ -107,6 +107,10 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div class="row">
+            {{$customers->links()}}
+        </div>
       </div>
    
   </body>
