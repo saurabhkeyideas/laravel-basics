@@ -13,7 +13,7 @@
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="align-items: center;">
-  <a class="navbar-brand" href="#" style="color: white;">Navbar</a>
+  <a class="navbar-brand" href="{{url('/')}}" style="color: white;">AccessWithLogin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -42,10 +42,13 @@
         
       </div>
       <button class="btn btn-primary">Search</button>
-       <a href="{{url('/customer/view')}}">
-      <button class="btn btn-primary">Reload</button>
-      </a>
+       
       </form>
+      <div class="container" style="margin-top:2%;"><a href="{{url('/customer/view')}}">
+      <button class="btn btn-primary">Reload</button>
+      </a></div>
+      
+
         <a href="{{route('customer.create')}}"> 
             <!-- another method to define url path -->
         <button class="btn btn-primary d-inline-block m-2 float-right">Add Customer</button>

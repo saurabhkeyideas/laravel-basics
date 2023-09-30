@@ -24,7 +24,7 @@ use App\Models\Customers;
 
 Route::group(['prefix'=>'/customer'],function(){
     Route::get('/create',[CustomerController::class,'index'])->name('customer.create'); //we can give router name by my convinience
-    Route::get('/view',[CustomerController::class,'view']);
+    Route::get('/view',[CustomerController::class,'view'])->middleware('guard');
     Route::post('',[CustomerController::class,'store']);
     Route::get('/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
     Route::get('/edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
@@ -32,9 +32,24 @@ Route::group(['prefix'=>'/customer'],function(){
 });
 
 
-Route::get('/',function(){  
-    return view('demo');
+Route::get('/login',function(){
+    session()->put('user_id',1);
+    echo "loggedIn";
 });
+
+Route::get('/logout',function(){
+    session()->forget('user_id');
+    return redirect('/register');
+});
+
+Route::get('/no-access',function(){
+    echo "You are not allowed to access this page";
+    die;
+});
+
+// Route::get('/',function(){  
+//     return view('demo');
+// })->middleware('guard');
 
 Route::get('/upload',function(){
     return view('upload');

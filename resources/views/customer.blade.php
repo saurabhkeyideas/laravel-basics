@@ -12,7 +12,7 @@
   <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="align-items: center;">
-  <a class="navbar-brand" href="#" style="color: white;">Navbar</a>
+  <a class="navbar-brand" href="{{url('/')}}" style="color: white;">AccessWithLogin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
