@@ -20,12 +20,17 @@ use App\Models\Customers;
 |
 */
 // Customer Routes
-Route::get('/customer/create',[CustomerController::class,'index'])->name('customer.create'); //we can give router name by my convinience
-Route::get('/customer/view',[CustomerController::class,'view']);
-Route::post('/customer',[CustomerController::class,'store']);
-Route::get('/customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
-Route::get('/customer/edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
-Route::post('/customer/update/{id}',[CustomerController::class,'update'])->name('customer.update');
+
+
+Route::group(['prefix'=>'/customer'],function(){
+    Route::get('/create',[CustomerController::class,'index'])->name('customer.create'); //we can give router name by my convinience
+    Route::get('/view',[CustomerController::class,'view']);
+    Route::post('',[CustomerController::class,'store']);
+    Route::get('/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
+    Route::get('/edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
+    Route::post('/update/{id}',[CustomerController::class,'update'])->name('customer.update');
+});
+
 
 Route::get('/',function(){  
     return view('demo');
