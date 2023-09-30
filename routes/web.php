@@ -31,6 +31,14 @@ Route::get('/',function(){
     return view('demo');
 });
 
+Route::get('/upload',function(){
+    return view('upload');
+});
+
+Route::post('/upload',[CustomerController::class,'upload']);
+
+
+
 
 
 // Route::get('/',[BasicController::class, 'home']);

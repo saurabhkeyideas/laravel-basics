@@ -90,4 +90,23 @@ class CustomerController extends Controller
         return redirect('customer/view');
     }
 
+    // public function upload(Request $request){
+    //     // echo "<pre>";
+    //     // print_r($request->all());
+
+    //     // $fileName=time()."sks".$request->file('image')->getClientOriginalExtension();
+    //      echo $request->file('image')->store('uploads');
+    // }
+    public function upload(Request $request)
+                                         {
+    if ($request->hasFile('image')) {
+        $path = $request->file('image')->store('uploads');
+        // You can do more with the $path, like storing it in the database.
+        return "File uploaded successfully!";
+    } else {
+        return "No file was uploaded.";
+    }
+}
+
+
 }
